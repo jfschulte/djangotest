@@ -76,12 +76,13 @@
                                 <div class="item" style="width:300px"><img src="https://i.imgur.com/{{ x|slice:"1:-1" }}{{ thumbnailSize }}{% if x|slice:"-1:" == 'j' %}.jpg{% elif x|slice:"-1:" == 'g' %}.gif{% elif x|slice:"-1:" == 'p' %}.png{% endif %}" width="100%"></div>
                                 {% endif %}
                             {% endfor %}
-                        </div>
+                            </div>
                         <div><a href="{{ element.4 }}">{{ element.1 }}</a></div>
                     </div>
             {% endfor %}
             </div>
-            <div class="footer"><a href="{{ title }}%{{ nextPage }}">Next</a></div>
+            <div class="footer"><a href="{{ title }}/{{ nextPage }}">Next</a></div>
+        </div>
 
             <script>
                 var owl= $('.owl-carousel');
@@ -113,6 +114,6 @@
 
             </script>
 
-        </div>
+
     </body>
 </html>

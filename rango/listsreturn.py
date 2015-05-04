@@ -69,7 +69,7 @@ def write_file(filename, lis):
 
 
 def getGlist():
-    print "returning glist"
+    #print "returning glist"
     return glist
 
 

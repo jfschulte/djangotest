@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-
-
-
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
@@ -33,7 +29,7 @@ LOGIN_URL = '/rango/login/'
 SECRET_KEY = 't_&1a7621v4%bz!h=az+mpin#^8s1#6qykycu+&v7b92r+4=9t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -65,7 +61,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'djangotest.urls'
 
 TEMPLATES = [
-    {
+        {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [TEMPLATE_PATH],
         'APP_DIRS': True,

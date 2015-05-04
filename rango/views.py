@@ -141,7 +141,7 @@ def register(request):
             registered = True
 
         # Invalid form or forms - mistakes or something else?
-        # Print problems to the terminal.
+        # print problems to the terminal.
         # They'll also be shown to the user.
         else:
             print user_form.errors, profile_form.errors
@@ -186,7 +186,7 @@ def user_logout(request):
     # Take the user back to the homepage.
     return HttpResponseRedirect('/rango/')
 
-#def getSubreddit(inputSubreddit):
+
 def getSubreddit(request, inputSubreddit, nextp = 'None'):
 
     if nextp == 'None':
@@ -195,10 +195,10 @@ def getSubreddit(request, inputSubreddit, nextp = 'None'):
         blah = redditparse.getExtraSubmissionsInSubreddit(inputSubreddit, nextp)
 
     if blah is None:
-        print "displaying none.html"
+        #print "displaying none.html"
         return render(request, 'rango/index.html', {})
     else:
-        print "Not displaying none.html"
+        #print "Not displaying none.html"
         workingList = blah[0]
         nextPage = blah[1]
 
@@ -210,11 +210,11 @@ def getSubreddit(request, inputSubreddit, nextp = 'None'):
                                                     })
 
 def getRedditor(request, inputRedditor, nextp = 'None'):
-    print 'start getRedditor'
+    #print 'start getRedditor'
 
 
-    print inputRedditor
-    print nextp
+    #print inputRedditor
+    #print nextp
     if nextp == 'None':
         blah = redditparse.getSubmissionsInRedditor(inputRedditor)
     else:
@@ -235,24 +235,24 @@ def getRedditor(request, inputRedditor, nextp = 'None'):
                                                     })
 
 def add_fav(request, inputRedditor, inputImage ):
-    print inputRedditor
-    print inputImage
+    #print inputRedditor
+    #print inputImage
 
 
 
     if request.method == 'GET':
         if request.user.is_authenticated():
             username = request.user.username
-            print username
+            #print username
 
             r = RedditUserName.objects.get_or_create(username=username)[0]
             u = UserFavorites.objects.get_or_create(redditUserName = r)[0]
 
             if len(FavRedditor.objects.filter(favRedditor = inputRedditor,  userFavorites = u )) == 0:
                 f = FavRedditor.objects.create(userFavorites = u)
-                print "f.favRedditor saving as " + inputRedditor
+                #print "f.favRedditor saving as " + inputRedditor
                 f.favRedditor = inputRedditor
-                print "f.redditorImage saving as " + inputImage
+                #print "f.redditorImage saving as " + inputImage
                 f.redditorImage = inputImage
 
                 f.save()
@@ -268,13 +268,13 @@ def add_fav(request, inputRedditor, inputImage ):
 def getFavorites(request):
     r = RedditUserName.objects.get_or_create(username=request.user.username)[0]
     u = UserFavorites.objects.get_or_create(redditUserName = r)[0]
-    print "checking favlist"
+    #print "checking favlist"
     favlist = FavRedditor.objects.filter(  userFavorites = u )
-    print favlist[0].redditorImage
-    print "end checking favlist"
+    #print favlist[0].redditorImage
+    #print "end checking favlist"
 
-    if len(favlist) > 0:
-        print favlist
+    #if len(favlist) > 0:
+        #print favlist
 
     return render(request, 'rango/favorites.html', {"favlist": favlist,
                                                     "glist": listsreturn.getGlist(),
