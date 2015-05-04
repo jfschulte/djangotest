@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Favorites</title>
+        <meta name="viewport" content="initial-scale=0.5">
+        <link rel="stylesheet" href="/static/css/owl.carousel.css">
+        <link rel="stylesheet" href="/static/css/owl.theme.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <script src="/static/js/jquery-1.9.1.min.js"></script>
+        <script src="/static/js/jquery.isotope.min.js"></script>
+        <script src="/static/js/owl.carousel.js"></script>
+        <script src="/static/js/imagesloaded.pkgd.min.js"></script>
+
+        <style>
+            #favers{
+                font-size: 20;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="header">
+            <div class="menu-wrap">
+                <nav class="menu">
+                    <ul class="clearfix">
+                        <li><a href="#">Home</a></li>
+                        <li>
+                            <a href="#">GW<span class="arrow">&#9660;</span></a>
+
+                            <ul class="sub-menu">
+
+                                {% for x in glist|slice:":20" %}
+                                <li><a href="/r/{{ x }}">{{ x }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">GW2<span class="arrow">&#9660;</span></a>
+
+                            <ul class="sub-menu">
+                                {% for x in glist|slice:"20:40" %}
+                                <li><a href="/r/{{ x }}">{{ x }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">GW3<span class="arrow">&#9660;</span></a>
+
+                            <ul class="sub-menu">
+                                {% for x in glist|slice:"40:" %}
+                                <li><a href="/r/{{ x }}">{{ x }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">normal<span class="arrow">&#9660;</span></a>
+                                 <ul class="sub-menu">
+                                 <li><a href="/r/pics">pics</a></li>
+                                 <li><a href="/r/funny">funny</a></li>
+                                 <li><a href="/r/gifs">gifs</a></li>
+                                 <li><a href="/r/adviceanimals">adviceanimals </a></li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+        <div id="wrapper">
+            <div class="container" >
+            {% for element in favlist %}
+                <div class="itemwrap" align="center">
+                    <div><a href="/u/{{ element.favRedditor }}">{{ element.favRedditor }}</a></div>
+                        <div class="single-image" style="width:300px">
+                            {% if element.redditorImage|slice:"0:1" == 'i' %}
+                                <div class="item" style="width:300px"><img src="https://i.imgur.com/{{ element.redditorImage|slice:"1:-1" }}{{ thumbnailSize }}{% if element.redditorImage|slice:"-1:" == 'j' %}.jpg{% elif element.redditorImage|slice:"-1:" == 'g' %}.gif{% elif element.redditorImage|slice:"-1:" == 'p' %}.png{% endif %}" width="100%"></div>
+                            {% endif %}
+                        </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+
+
+        <div class="footer"></div>
+
+        <script>
+            var owl= $('.owl-carousel');
+            owl.owlCarousel({
+                margin:10,
+                loop:true,
+                autoWidth:true,
+                items:1,
+                autoplay:true,
+                autoplayTimeout:2500
+            })
+        </script>
+
+        <script>
+            $(function(){
+                var $container = $('.container');
+                $container.imagesLoaded( function(){
+                    $container.isotope({
+                        itemSelector : '.itemwrap',
+                        layoutMode: 'masonry',
+                        masonry:{
+                            columnWidth:350
+                        }
+
+                    });
+                });
+            });
+        </script>
+
+    </body>
+</html>
