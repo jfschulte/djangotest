@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+  <head>
+    <title>{{ title }}</title>
+    <meta name=viewport content="width=740, initial-scale=.48"/>
+    <link rel="stylesheet" href="/static/css/owl.carousel.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.css">
+    <link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="stylesheet" href="/static/css/slidebars.css">
+
+    <script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script src="/static/js/jquery.isotope.min.js"></script>
+    <script src="/static/js/owl.carousel.js"></script>
+    <script src="/static/js/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="http://test.gfycat.com/gfycat_test.js"></script>
+    <script src="/static/js/jquery.jscroll.min.js"></script>
+    <script src="/static/js/endless-pagination.js"></script>
+    <script src="/static/js/jquery.infinitescroll.min.js"></script>
+
+
+  </head>
+  <body>
+    <div id="sb-site">
+        <div id="header">
+          <div class="navicon-holder sb-toggle-left">
+            <div class="sb-toggle-left">
+                <div class="navicon-line sb-toggle-left"></div>
+                <div class="navicon-line sb-toggle-left"></div>
+                <div class="navicon-line sb-toggle-left"></div>
+            </div>
+          </div>
+            <div class="login_area">
+            {% if user.is_authenticated  %}
+                <div id="user_heading">
+                  Logged in as {{ user.username }}  <br />  <a href="/favorites">Favorites</a>  |  <a href="/logout">logout</a>
+                </div>
+            {% else %}
+                <div class="spacer">
+                  <form method="post" action="/redapp/login/">
+
+                  {% csrf_token %}
+                  <input id="userbox" name="username" placeholder="username" type="text" maxlength="20" tabindex="1"><input id="pwbox" name="password" placeholder="password" type="password" tabindex="1">
+                  <input type="hidden" name="next" value="{{request.path}}" />
+                  <div id="remember-me"><input type="checkbox" name="rem" id="rem-login-main" tabindex="1">
+                      <label for="rem-login">remember me</label><a class="recover-password" href=""></a>
+                  </div>
+                  <div class="submit">
+                      <button class="btn" type="submit" tabindex="1">login</button>
+                  </div><div class="clear"></div></form>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+
+      {% if workingList|length > 0 %}
+      <div id="bodywrapper">
+
+
+        <div id="pinwrapper">
+
+          <div id="images_loading">Images will resize when loading is complete.</div>
+
+          <div class="container" >
+            {% for element in workingList %}
+              <div class="itemwrap" align="center">
+                  <div>
+                    <div id="redditornamebox"><a href="/u/{{ element.0 }}">{{ element.0 }}</a></div>
+                  </div>
+                    <div style="clear:both">
+                    {% if element.3 == 1 %}
+                      <div class="single-image" style="width:300px">
+                    {% else %}
+                      <div class="owl-carousel" style="width:300px">
+                    {% endif %}
+                      {% for x in element.2 %}
+                        {% if x|slice:"0:1" == 'i' %}
+                        <div class="item" style="width:300px"><img src="https://i.imgur.com/{{ x|slice:"1:-1" }}{% if x|slice:"-1:" == 'j' %}{{ thumbnailSize }}.jpg{% elif x|slice:"-1:" == 'g' %}.gif{% elif x|slice:"-1:" == 'p' %}.png{% endif %}" width="100%"></div>
+                        {% elif x|slice:"0:1" == 'g' %}
+                        <div class="item" style="width:300px"><div class="gfyitem" data-title=true data-autoplay=true data-controls=false data-expand=false data-id="{{ x|slice:"1:" }}" width="300px" height="auto" poster="http://thumbs.gfycat.com/{{ x|slice:"1:" }}.jpg"/></div></div>
+                        {% endif %}
+                      {% endfor %}
+                      </div>
+                    </div>
+                <div id="subredditthiscamefrom">
+                  <a href="/r/{{ element.6 }}">{{ element.6 }}</a>
+                </div>
+                <div id="linktoimagesite">
+                  {% if element.2.0|slice:"0:1" == 'i' %}
+                  <a href="{{ element.4 }}">imgur</a>
+                  {% elif element.2.0|slice:"0:1" == 'g'%}
+                  <a href="{{ element.4 }}">gfycat</a>
+                  {% endif %}
+                </div>
+                <div id="linktoredditthread">
+                  <a href="{{ element.5 }}">{{ element.1 }}</a>
+                </div>
+              </div>
+          {% endfor %}
+
+          </div>
+            <div class="next-button-outside"><div class="next-page-button"><a href="{{ title }}/{{ nextPage }}" class="jscroll-next">Next</a></div></div>
+        </div>
+
+
+      </div>
+      {% else %}
+      <div id="main-body">
+        <div id="ecolor"><br /><br />
+          Oops! There's nothing here. Try one of these other great subs.<br /><br /><br />
+        </div>
+        <div id="main_page_subreddit_list">
+            {% for x in subredditList %}
+            <div id="individualsubreddit"><a href="/r/{{ x }}">/r/{{ x }}</a></div>
+            {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="sb-slidebar sb-left sb-width-custom sb-static" data-sb-width="220px">
+      <ul class="sb-menu">
+      <br /><br /><br /><br />
+        {% for x in sideList %}
+        <div class="sbclose"><a href="/r/{{ x }}">{{ x }}</a></div>
+        {% endfor %}
+      <br /><br /><br /><br />
+      </ul>
+    </div>
+
+    <script src="/static/js/slidebars.js"></script>
+    <script>
+      var owl= $('.owl-carousel');
+      owl.owlCarousel({
+        margin:10,
+        loop:true,
+        autoWidth:true,
+        items:1,
+        autoplay:true,
+        autoplayTimeout:2500
+      })
+    </script>
+
+
+    <script>
+      $(function() {
+          var $container = $('.container');
+          $container.imagesLoaded(function () {
+              $container.isotope({
+                  itemSelector: '.itemwrap',
+                  layoutMode: 'masonry',
+                  masonry: {
+                      columnWidth: 370,
+                      isFitWidth: true
+                  }
+              });
+              $('#images_loading').remove();
+          });
+
+
+
+
+      });
+
+    </script>
+    <script>
+      $(function() {
+        $(document).ready(function() {
+          var mySlidebars = new $.slidebars();
+          $('.my-button').on('click', function() {
+            mySlidebars.slidebars.open('left');
+          });
+          $('.my-other-button').on('click', function() {
+            mySlidebars.slidebars.toggle('right');
+          });
+          $('.my-third-button').click(mySlidebars.slidebars.close);
+        });
+      });
+    </script>
+
+    <script>
+
+
+        $(window).on('scroll', function(){
+            if( $(window).scrollTop() > $(document).height() - $(window).height() - 100 ) {
+                var $container = $('.container');
+                $('.scroll').jscroll({
+                    loadingHtml: '<img src="loading.gif" alt="Loading" /> Loading...',
+                    padding: 20,
+                    nextSelector: 'a.jscroll-next:last',
+                    contentSelector: '.itemwrap'
+
+
+                })
+            }
+        }).scroll();
+
+
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,563 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+body {
+  background-color: #777777;
+  font-family: sans-serif;
+}
+
+
+/* ---- isotope ---- */
+#wrapper{
+    max-width: 1050px;
+    float: right;
+    width: 1050px;
+}
+
+.container {
+    width: 100%
+    float:left;
+    clear: right;
+    background: #777777;
+    margin: 0 auto;
+}
+
+
+#imageholder{
+    clear: both;
+    width: 350px;
+    margin: auto;
+}
+
+.next-button-outside{
+    clear: both;
+    width:64px;
+    height:34px;
+    background-color: #222222;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.next-page-button{
+    padding-top: 8px;
+}
+.next-page-button a{
+    color: #009999;
+
+}
+
+
+
+body .a{
+
+}
+
+
+.next-page-button a:hover {
+	color: #009999; /* Link hover colour. */
+	text-decoration: underline;
+}
+
+
+
+/* clear fix */
+.isotope:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .item ---- */
+
+.itemwrap {
+  float: left;
+  background-color: #222222;
+  border: 2px solid #333;
+  width: 350px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+
+}
+
+.itemwrap a {
+    color: #009999;
+}
+.footer {
+    margin: 50px;
+    text-align: center;
+    clear: both;
+    font-size: 20px;
+}
+
+
+#user_heading{
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 8px;
+    text-align: center;
+    float: right;
+    margin-top: 5px;
+    font-weight: 600;
+}
+#user_heading a{
+    color: #009999;
+}
+
+.login_area{
+    float: right;
+    margin-right: 35px;
+    width: 331px;
+}
+
+input[id="userbox"]{
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    width: 157px;
+}
+
+input[id="pwbox"]{
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 157px;
+}
+
+.submit{
+    float: right;
+    width: 50px;
+    clear: right;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+#remember-me {
+    float: left;
+    width: 45%;
+    clear: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+label[for="rem-login"]{
+    font-size: small;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#name{
+    padding: 20px;
+}
+
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+
+#main-body{
+    clear: both;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #222222;
+
+}
+#18{
+    align-self: center;
+    color: #009999;
+}
+#ecolor{
+    font-weight: bolder;
+    font-size: large;
+    color: #009999;
+}
+
+#individualsubreddit a{
+    color: #009999;
+}
+
+#individualsubreddit a:hover {
+	color: #009999; /* Link hover colour. */
+	text-decoration: underline;
+}
+
+#sideLinks{
+    float: left;
+    width: 135px;
+}
+
+.sidelinktext{
+    margin-left: 15px;
+}
+
+#pinwrapper{
+    width: 100%
+    float:right;
+}
+#bodywrapper{
+    width: 100%;
+}
+
+
+#header{
+    background-color: #006666;
+    height: 65px;
+    margin-bottom: 15px;
+    border-bottom-style: solid;
+    border-bottom-color: #003333;
+}
+
+#redditornamebox{
+    margin-top:10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    float:left;
+}
+
+#addToFavorites{
+    margin-top:10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    float:right;
+}
+
+#linktoredditthread{
+    clear: both;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#subredditthiscamefrom{
+    margin-left: 40px;
+    margin-bottom: 10px;
+
+    float:left;
+}
+
+#linktoimagesite{
+    margin-right: 40px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+#main_page_subreddit_list{
+
+}
+
+#individualsubreddit{
+    width: 200px;
+    margin: 10px;
+    display: inline-block;
+    text-align: left;
+
+}
+
+
+/*----- Menu Outline -----*/
+.menu-wrap {
+    width:100%;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+    background:#3e3436;
+}
+
+.menu {
+    width:1000px;
+    margin:0px auto;
+}
+
+.menu li {
+    margin:0px;
+    list-style:none;
+    font-family:'Ek Mukta';
+}
+
+.menu a {
+    transition:all linear 0.15s;
+    color:#919191;
+}
+
+.menu li:hover > a, .menu .current-item > a {
+    text-decoration:none;
+    color:#be5b70;
+}
+
+.menu .arrow {
+    font-size:11px;
+    line-height:0%;
+}
+
+/*----- Top Level -----*/
+.menu > ul > li {
+    float:left;
+    display:inline-block;
+    position:relative;
+    font-size:19px;
+}
+
+.menu > ul > li > a {
+    padding:10px 40px;
+    display:inline-block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+}
+
+.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+    background:#2e2728;
+}
+
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+
+.sub-menu {
+    width:160%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#2e2728;
+}
+
+.sub-menu li {
+    display:block;
+    font-size:16px;
+}
+
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#3e3436;
+}
+
+.navbar {
+
+
+
+	/* Glass gradient overlay. */
+
+}
+
+#logo {
+	margin-top: 4px;
+	text-align: center;
+}
+
+#top-arrow {
+	padding-top: 17px;
+	padding-bottom: 13px;
+}
+
+.navicon-holder{
+    float: left;
+    padding:21px;
+    width: 70px;
+    height: 55px;
+
+}
+.navbar .sb-toggle-left {
+
+	width: 60px;
+    height: 55px;
+	float: left;
+    padding: 18px;
+}
+
+.navbar .sb-toggle-right {
+	width: 58px;
+	float: right;
+	padding: 14px;
+}
+
+.sb-toggle-left, .sb-toggle-right, .sb-open-left, .sb-open-right, .sb-close {
+	cursor: pointer;
+}
+
+.sb-right {
+	margin-top: 50px;
+}
+
+.navicon-line {
+	width: 28px;
+	height: 4px;
+	border-radius: 1px;
+	margin-bottom: 4px;
+	background-color: #fff;
+}
+
+ul.navbar-nav {
+	display: none;
+}
+
+/* Slidebars */
+
+.sb-slidebar {
+	background-color: #222222;
+}
+
+/* ---------------
+ * 003 - Slidebars
+ */
+
+.sb-slidebar {
+	background-color: #222222; /* Background colour. */
+	color: #e8e8e8; /* Text colour. */
+}
+
+.sbclose a{
+    font-weight: bold;
+    color: #009999;
+}
+
+.sbclose a:hover {
+	color: #009999; /* Link hover colour. */
+	text-decoration: underline;
+}
+
+
+/* Main Menu */
+.sb-menu { /* Apply to <ul> or <ol>. */
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+    border-right: 5px;
+    border-color: black;
+}
+
+.sb-menu li {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.1); /* Will lighten any background colour you set. */
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Will darken any background colour you set. */
+}
+
+.sb-menu > li:first-child {
+	border-top: none; /* Removes top border from first list item.. */
+}
+
+.sb-menu > li:last-child {
+	border-bottom: none; /* Removed bottom border from last list item. */
+}
+
+.sb-menu li a {
+	width: 100%; /* Makes links full width. */
+	display: inline-block;
+	padding: 1em; /* Creates an even padding the same size as your font. */
+	color: #f2f2f2;
+}
+
+.sb-menu li a:hover {
+	text-decoration: none;
+	background-color: rgba(255, 255, 255, 0.05); /* Will lighten any background colour you set. */
+}
+
+/* Borders */
+.sb-left .sb-menu li a {
+	border-left: 3px solid transparent;
+}
+
+.sb-left .sb-menu li a:hover {
+	border-left: 3px solid; /* Removes transparent colour, so border colour will be the same as link hover colour. */
+}
+
+.sb-right .sb-menu li a {
+	border-right: 3px solid transparent;
+}
+
+.sb-right .sb-menu li a:hover {
+	border-right: 3px solid; /* Removes transparent colour, so border colour will be the same as link hover colour. */
+}
+
+/* Left */
+
+
+.sb-menu li .sb-open-right, .sb-menu li small {
+	display: inline-block;
+	padding: 14px;
+}
+
+.sb-menu li img {
+	margin: 14px;
+}
+
+/* Right */
+aside#about-me {
+	padding: 14px 14px 14px 14px;
+}
+
+img.img-me {
+	margin: 14px auto;
+	border: 4px solid #fff;
+}
+
+/* Slidebar Type */
+
+.sb-slidebar, .sb-slidebar h3 {
+	color: #F0F0F0;
+}
+
+.sb-slidebar ul.sb-nav li a {
+	color: #DEDEDE;
+}
+
+.sb-slidebar ul.sb-nav li a:hover {
+	color: #C7C7C7;
+	text-decoration: none;
+}
+
+.sb-slidebar ul.sb-nav li span:hover {
+	color: #C7C7C7;
+}
+
+/* Anchor Links */
+#download, #api, #options, #helper-classes {
+	margin-top: -50px;
+	padding-top: 50px;
+}
+
+/* Helper Classes */
+.add-bottom-margin {
+	margin-bottom: 15px;
+}
+
+.no-bottom-margin {
+	margin-bottom: 0;
+}
+
+.add-top-margin {
+	margin-top: 15px;
+}
+
+.no-top-margin {
+	margin-top: 0;
+}
+
+.push-down {
+	position: relative;
+	top: 2px;
+}

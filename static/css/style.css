@@ -6,17 +6,34 @@
 
 
 body {
-  background-color: black;
+  background-color: aliceblue;
   font-family: sans-serif;
 }
 
 
 /* ---- isotope ---- */
+#wrapper{
+    max-width: 1050px;
+    float: right;
+    width: 1050px;
+}
 
 .container {
-  background: black;
-  max-width: 1050px;
+    float:left;
+    max-width: 1120px;
+    width: 1110px;
+    clear: right;
+    background: aliceblue;
+    margin: 0 auto;
 }
+
+
+#imageholder{
+    clear: both;
+    width: 350px;
+    margin: auto;
+}
+
 
 /* clear fix */
 .isotope:after {
@@ -29,29 +46,154 @@ body {
 
 .itemwrap {
   float: left;
-  background: lightgray;
+  background: darkgray;
   border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.7);
-  width: 330px;
+  width: 350px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .footer {
     clear: both;
     font-size: 20px;
 }
-#wrapper{
-    min-width:400px;
-    max-width:1050px;
-    margin-left: auto;
-    margin-right: auto;
-    clear: both;
+
+
+#user_heading{
+    float: right;
+}
+
+.login_area{
+    float: right;
+    width: 331px;
+    border: 1px solid black ;
+}
+
+input[id="userbox"]{
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    width: 157px;
+}
+
+input[id="pwbox"]{
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 157px;
+}
+
+.submit{
+    float: right;
+    width: 50px;
+    clear: right;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+#remember-me {
+    float: left;
+    width: 45%;
+    clear: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+label[for="rem-login"]{
+    font-size: small;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#name{
+    padding: 20px;
 }
 
 .clearfix:after {
     display:block;
     clear:both;
+}
+
+#main-body{
+    clear: both;
+    text-align: center;
+
+}
+
+#sideLinks{
+    float: left;
+    width: 135px;
+}
+
+#pinwrapper{
+    position: relative;
+    right: -50px;
+    float: left;
+    width: 1110px;
+    min-width: 1110px;
+}
+#bodywrapper{
+    width: 1500px;
+    min-width: 1500px;
+}
+
+#header{
+    width: 1273px;
+    height: 60px;
+    margin-bottom: 20px;
+    max-width: 1400px;
+}
+
+#redditornamebox{
+    margin-top:10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    float:left;
+}
+
+#addToFavorites{
+    margin-top:10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    float:right;
+}
+
+#linktoredditthread{
+    clear: both;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#subredditthiscamefrom{
+    margin-left: 40px;
+    margin-bottom: 10px;
+
+    float:left;
+}
+
+#linktoimagesite{
+    margin-right: 40px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+#main_page_subreddit_list{
+    width: 100%;
+}
+
+#individualsubreddit{
+    width: 200px;
+    margin: 10px;
+    display: inline-block;
+    text-align: left;
 }
 
 /*----- Menu Outline -----*/
@@ -137,4 +279,6 @@ body {
 .sub-menu li a:hover, .sub-menu .current-item a {
     background:#3e3436;
 }
+
+
 

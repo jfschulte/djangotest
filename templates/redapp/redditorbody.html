@@ -1,0 +1,65 @@
+{% extends 'redapp/redditor.html' %}
+
+<body>
+
+    {% block body_block %}
+
+  {% if workingList|length > 0 %}
+  <div id="bodywrapper">
+    <div id="pinwrapper">
+      <div id="images_loading">Images will resize when loading is complete.</div>
+      <div class="container" >
+        {% for element in workingList %}
+          <div class="itemwrap" align="center">
+              <div>
+                <div id="redditornamebox"><a href="/u/{{ element.0 }}">{{ element.0 }}</a></div>
+                <div id="addToFavorites"><a href="/fav/{{ element.0 }}/{{ element.2.0 }}">Add user to Favorites</a></div>
+              </div>
+                <div style="clear:both;">
+                {% if element.3 == 1 %}
+                  <div class="single-image" style="width:300px">
+                {% else %}
+                  <div class="owl-carousel" style="width:300px">
+                {% endif %}
+                  {% for x in element.2 %}
+                    {% if x|slice:"0:1" == 'i' %}
+                    <div class="item" style="width:300px"><img src="https://i.imgur.com/{{ x|slice:"1:-1" }}{% if x|slice:"-1:" == 'j' %}{{ thumbnailSize }}.jpg{% elif x|slice:"-1:" == 'g' %}.gif{% elif x|slice:"-1:" == 'p' %}.png{% endif %}" width="100%"></div>
+                    {% elif x|slice:"0:1" == 'g' %}
+                    <div class="item" style="width:300px"><div class="gfyitem" data-title=true data-autoplay=true data-controls=false data-expand=false data-id="{{ x|slice:"1:" }}" width="300px" height="auto" poster="http://thumbs.gfycat.com/{{ x|slice:"1:" }}.jpg"/></div></div>
+                    {% endif %}
+                  {% endfor %}
+                  </div>
+                </div>
+            <div id="subredditthiscamefrom">
+              <a href="/r/{{ element.6 }}">{{ element.6 }}</a>
+            </div>
+            <div id="linktoimagesite">
+              {% if element.2.0|slice:"0:1" == 'i' %}
+              <a href="{{ element.4 }}">imgur</a>
+              {% elif element.2.0|slice:"0:1" == 'g'%}
+              <a href="{{ element.4 }}">gfycat</a>
+              {% endif %}
+            </div>
+            <div id="linktoredditthread">
+              <a href="{{ element.5 }}">{{ element.1 }}</a>
+            </div>
+          </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div id="main-body">
+    <div id="ecolor"><br /><br />
+      Oops! There's nothing here. Try one of these other great subs.<br /><br /><br />
+    </div>
+    <div id="main_page_subreddit_list">
+        {% for x in subredditList %}
+        <div id="individualsubreddit"><a href="/r/{{ x }}">/r/{{ x }}</a></div>
+        {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+    {% endblock %}
+</body>
