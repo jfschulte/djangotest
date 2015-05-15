@@ -45,7 +45,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.http',
-    'endless_pagination',
     'redapp',
 )
 
@@ -125,6 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_PATH = os.path.join(BASE_DIR,'static')
+print STATIC_PATH
 
 STATIC_URL = '/static/' # You may find this is already defined as such.
 

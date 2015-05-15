@@ -19,7 +19,7 @@ body {
 }
 
 .container {
-    width: 100%
+    width: 90%
     float:left;
     clear: right;
     background: #777777;
@@ -67,7 +67,9 @@ body .a{
 	text-decoration: underline;
 }
 
-
+#fit-width .isotope {
+  margin: 0 auto;
+}
 
 /* clear fix */
 .isotope:after {
@@ -81,7 +83,7 @@ body .a{
 .itemwrap {
   float: left;
   background-color: #222222;
-  border: 2px solid #333;
+  border: 3px solid #111111;
   width: 350px;
   margin-left: 10px;
   margin-right: 10px;
@@ -115,9 +117,12 @@ body .a{
 }
 
 .login_area{
+    background-color: #222222;
     float: right;
-    margin-right: 35px;
-    width: 331px;
+    padding: 10px;
+    margin: 10px 35px 10px 35px;
+    width: 351px;
+    border-radius: 15px;
 }
 
 input[id="userbox"]{
@@ -139,18 +144,17 @@ input[id="pwbox"]{
 .submit{
     float: right;
     width: 50px;
-    clear: right;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
 }
 #remember-me {
+    color: #fff;
+    width: 150px;
     float: left;
-    width: 45%;
-    clear: left;
+    text-align: right;
     margin-left: 5px;
     margin-right: 5px;
-    margin-bottom: 5px;
 }
 
 label[for="rem-login"]{
@@ -172,7 +176,7 @@ label[for="rem-login"]{
 #main-body{
     clear: both;
     text-align: center;
-    padding: 10px;
+    margin: 10px;
     border-radius: 20px;
     background-color: #222222;
 
@@ -206,20 +210,23 @@ label[for="rem-login"]{
 }
 
 #pinwrapper{
-    width: 100%
-    float:right;
 }
 #bodywrapper{
-    width: 100%;
 }
 
-
+#register{
+    padding-left: 25px;
+}
+#register a{
+    color: #009999;
+}
 #header{
     background-color: #006666;
-    height: 65px;
+    height: 100px;
     margin-bottom: 15px;
     border-bottom-style: solid;
-    border-bottom-color: #003333;
+    border-top-style: solid;
+    border-color: #003333;
 }
 
 #redditornamebox{
@@ -375,20 +382,28 @@ label[for="rem-login"]{
 .navicon-holder{
     float: left;
     padding:21px;
-    width: 70px;
-    height: 55px;
-
+    width: 100px;
+    height: 100px;
 }
+
+.navicon-inner-holder{
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+}
+
 .navbar .sb-toggle-left {
 
-	width: 60px;
-    height: 55px;
+	width: 50px;
+    height: 50px;
 	float: left;
     padding: 18px;
 }
 
+
+
 .navbar .sb-toggle-right {
-	width: 58px;
+	width: 50px;
 	float: right;
 	padding: 14px;
 }
@@ -402,10 +417,10 @@ label[for="rem-login"]{
 }
 
 .navicon-line {
-	width: 28px;
-	height: 4px;
-	border-radius: 1px;
-	margin-bottom: 4px;
+	width: 35px;
+	height: 6px;
+	border-radius: 3px;
+	margin-bottom: 6px;
 	background-color: #fff;
 }
 

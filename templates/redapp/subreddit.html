@@ -13,9 +13,6 @@
     <script src="/static/js/owl.carousel.js"></script>
     <script src="/static/js/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript" src="http://test.gfycat.com/gfycat_test.js"></script>
-    <script src="/static/js/jquery.jscroll.min.js"></script>
-    <script src="/static/js/endless-pagination.js"></script>
-    <script src="/static/js/jquery.infinitescroll.min.js"></script>
 
 
   </head>
@@ -23,32 +20,43 @@
     <div id="sb-site">
         <div id="header">
           <div class="navicon-holder sb-toggle-left">
-            <div class="sb-toggle-left">
+            <div class="navicon-inner-holder sb-toggle-left">
                 <div class="navicon-line sb-toggle-left"></div>
                 <div class="navicon-line sb-toggle-left"></div>
                 <div class="navicon-line sb-toggle-left"></div>
             </div>
           </div>
             <div class="login_area">
-            {% if user.is_authenticated  %}
-                <div id="user_heading">
-                  Logged in as {{ user.username }}  <br />  <a href="/favorites">Favorites</a>  |  <a href="/logout">logout</a>
-                </div>
-            {% else %}
+                {% if user.is_authenticated  %}
+                    <div id="user_heading">
+                      {{ user.username }} | <a href="/favorites">Favorites</a> | <a href="/logout">logout</a>
+                    </div>
+                {% else %}
                 <div class="spacer">
                   <form method="post" action="/redapp/login/">
 
-                  {% csrf_token %}
-                  <input id="userbox" name="username" placeholder="username" type="text" maxlength="20" tabindex="1"><input id="pwbox" name="password" placeholder="password" type="password" tabindex="1">
-                  <input type="hidden" name="next" value="{{request.path}}" />
-                  <div id="remember-me"><input type="checkbox" name="rem" id="rem-login-main" tabindex="1">
-                      <label for="rem-login">remember me</label><a class="recover-password" href=""></a>
-                  </div>
-                  <div class="submit">
-                      <button class="btn" type="submit" tabindex="1">login</button>
-                  </div><div class="clear"></div></form>
+                      {% csrf_token %}
+                      <input id="userbox" name="username" placeholder="username" type="text" maxlength="20" tabindex="1"><input id="pwbox" name="password" placeholder="password" type="password" tabindex="1">
+                      <div id="register">
+                          <a href="/register">Register</a>
+
+                          <div style="width: 220px; float: right;">
+                              <div id="remember-me">
+                                  <input type="checkbox" name="rem" id="rem-login-main" tabindex="1">
+                                  <label for="rem-login">Remember Me</label><a class="recover-password" href=""></a>
+                              </div>
+
+                              <div class="submit">
+                                  <button class="btn" type="submit" tabindex="1">login</button>
+                              </div>
+                              <div class="clear">
+
+                              </div>
+                          </div>
+                      </div>
+                  </form>
                 </div>
-            {% endif %}
+                {% endif %}
             </div>
         </div>
 

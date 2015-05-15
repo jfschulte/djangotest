@@ -12,38 +12,49 @@
         <script src="/static/js/owl.carousel.js"></script>
         <script src="/static/js/imagesloaded.pkgd.min.js"></script>
         <script type="text/javascript" src="http://test.gfycat.com/gfycat_test.js"></script>
-        <script src="/static/js/jquery.elementresize.js"></script>
 
     </head>
     <body>
       <div id="sb-site">
         <div id="header">
-            <div class="navicon-holder sb-toggle-left">
-                <div class="sb-toggle-left">
-                  <div class="navicon-line"></div>
-                  <div class="navicon-line"></div>
-                  <div class="navicon-line"></div>
-                </div>
+          <div class="navicon-holder sb-toggle-left">
+            <div class="navicon-inner-holder sb-toggle-left">
+                <div class="navicon-line sb-toggle-left"></div>
+                <div class="navicon-line sb-toggle-left"></div>
+                <div class="navicon-line sb-toggle-left"></div>
             </div>
+          </div>
             <div class="login_area">
-            {% if user.is_authenticated  %}
-                <div id="user_heading">
-                  {{ user.username }} | <a href="/favorites">Favorites</a> | <a href="/logout">logout</a>
-                </div>
-            {% else %}
+                {% if user.is_authenticated  %}
+                    <div id="user_heading">
+                      {{ user.username }} | <a href="/favorites">Favorites</a> | <a href="/logout">logout</a>
+                    </div>
+                {% else %}
                 <div class="spacer">
                   <form method="post" action="/redapp/login/">
 
-                  {% csrf_token %}
-                  <input id="userbox" name="username" placeholder="username" type="text" maxlength="20" tabindex="1"><input id="pwbox" name="password" placeholder="password" type="password" tabindex="1">
-                  <div id="remember-me"><input type="checkbox" name="rem" id="rem-login-main" tabindex="1">
-                      <label for="rem-login">remember me</label><a class="recover-password" href=""></a>
-                  </div>
-                  <div class="submit">
-                      <button class="btn" type="submit" tabindex="1">login</button>
-                  </div><div class="clear"></div></form>
+                      {% csrf_token %}
+                      <input id="userbox" name="username" placeholder="username" type="text" maxlength="20" tabindex="1"><input id="pwbox" name="password" placeholder="password" type="password" tabindex="1">
+                      <div id="register">
+                          <a href="/register">Register</a>
+
+                          <div style="width: 220px; float: right;">
+                              <div id="remember-me">
+                                  <input type="checkbox" name="rem" id="rem-login-main" tabindex="1">
+                                  <label for="rem-login">Remember Me</label><a class="recover-password" href=""></a>
+                              </div>
+
+                              <div class="submit">
+                                  <button class="btn" type="submit" tabindex="1">login</button>
+                              </div>
+                              <div class="clear">
+
+                              </div>
+                          </div>
+                      </div>
+                  </form>
                 </div>
-            {% endif %}
+                {% endif %}
             </div>
         </div>
         {% block body_block%}{% endblock %}
@@ -77,72 +88,6 @@
         })
     </script>
 
-
-    <!--
-    <script>
-        $('.itemwrap').on('elementResize', function(event) {
-            var $container = $('.container');
-            $container.isotope({
-                itemSelector: '.itemwrap',
-                layoutMode: 'masonry',
-                masonry: {
-                    columnWidth: 350,
-                    isFitWidth: true
-
-                }
-
-            });
-        });
-    </script>
-    -->
-    <!--
-  <script>
-      $(function(){
-
-      var $container = $('.container'),
-          $body = $('body'),
-          colW = 370,
-          columns = null;
-
-      $container.isotope({
-        // disable window resizing
-        resizable: false,
-        masonry: {
-          columnWidth: colW
-        }
-      });
-
-      $(window).smartresize(function(){
-
-        // measure the width of all the items
-        var itemTotalWidth = 0;
-        $container.children().each(function(){
-          itemTotalWidth += $(this).outerWidth(true);
-        });
-
-        // check if columns has changed
-        var bodyColumns = Math.floor( ( $body.width() -10 ) / colW ),
-            itemColumns = Math.floor( itemTotalWidth / colW ),
-            currentColumns = Math.min( bodyColumns, itemColumns );
-        if ( currentColumns !== columns ) {
-          // set new column count
-          columns = currentColumns;
-          // apply width to container manually, then trigger relayout
-          $container.width( columns * colW )
-            .isotope('reLayout');
-        }
-
-      }).smartresize(); // trigger resize to set container width
-
-      $container.imagesLoaded( function() {
-          $('#images_loading').remove();
-          $container.isotope('reLayout');
-      });
-
-
-});
-  </script>
-    -->
     <script>
       $(function() {
           var $container = $('.container');
@@ -159,6 +104,7 @@
           });
       });
     </script>
+      <!--
     <script>
       (function($) {
         $(document).ready(function() {
@@ -166,6 +112,7 @@
         });
       }) (jQuery);
     </script>
+    -->
     <script>
       $(function() {
         $(document).ready(function() {
